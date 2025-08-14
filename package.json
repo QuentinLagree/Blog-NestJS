@@ -77,7 +77,7 @@
     "typescript": "^5.7.3"
   },
   "prisma": {
-    "seed": "ts-node ./prisma/seed.ts"
+    "seed": "ts-node prisma/seed.ts"
   },
   "pnpm": {
     "overrides": {
