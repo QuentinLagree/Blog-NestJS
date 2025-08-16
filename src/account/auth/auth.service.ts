@@ -4,9 +4,9 @@ import { User } from '@prisma/client';
 import { compare } from 'bcryptjs';
 import { UserLoginCredentials, UserSession } from '../../database/entities/user/user.dto';
 import { PrismaService } from '../../database/prisma.service';
-import { PasswordNotMatchException } from '../../usecases/utils/errors/PasswordNotMatchException.error';
-import { UserAlreadyActiveSession } from '../../usecases/utils/errors/UserAlreadyActiveSession.error';
-import { PasswordNotSameException } from 'src/usecases/utils/errors/PasswordNotSame.error';
+import { PasswordNotMatchException } from '../../commons/utils/exceptions/PasswordNotMatchException.error';
+import { UserAlreadyActiveSession } from '../../commons/utils/exceptions/UserAlreadyActiveSession.error';
+import { PasswordNotSameException } from 'src/commons/utils/exceptions/PasswordNotSame.error';
 
 @Injectable()
 export class AuthService {

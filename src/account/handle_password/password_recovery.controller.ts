@@ -8,17 +8,17 @@ import { TOKEN } from "src/usecases/types/token.types";
 import { makeMessage, Message } from "src/usecases/utils/logger.utils";
 import { AuthService } from "../auth/auth.service";
 import { UserService } from "../user/user.service";
-import { TokenExpiredOrInvalidException } from "src/usecases/utils/errors/TokenIsExpired.error";
-import { PasswordNotMatchException } from "src/usecases/utils/errors/PasswordNotMatchException.error";
-import { isFieldsInvalid } from "../../usecases/utils/errors/isFieldsInvalids.error";
+import { TokenExpiredOrInvalidException } from "src/commons/utils/exceptions/TokenIsExpired.error";
+import { PasswordNotMatchException } from "src/commons/utils/exceptions/PasswordNotMatchException.error";
+import { isFieldsInvalid } from "../../commons/utils/exceptions/isFieldsInvalids.error";
 import { UserEntity } from "src/database/entities/user/user.entities";
 import { TransformDataMessageIntoObjectSerialization } from "src/usecases/interceptors/transform_data_message_into_object_serialization.interceptor";
 import { checkFieldIsEmpty } from "src/usecases/utils/checkIfFieldsEmpty.utils";
-import { FailSendingMail } from "src/usecases/utils/errors/FailSendingMail.error";
+import { FailSendingMail } from "src/commons/utils/exceptions/failSendingMail.error";
 import { TokenService } from "src/usecases/token/token.service";
 import { MailService } from "src/usecases/mailer/mailer.service";
 import { Url } from "src/usecases/types/url.types";
-import { PasswordNotSameException } from "src/usecases/utils/errors/PasswordNotSame.error";
+import { PasswordNotSameException } from "src/commons/utils/exceptions/PasswordNotSame.error";
 
 @ApiTags("Gestion du mot de passe")
 

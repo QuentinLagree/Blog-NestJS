@@ -13,7 +13,7 @@ import {
   PrismaUserServiceMockType,
 } from '../../usecases/mocks/services/database/create.prisma.service.mocks';
 import { compare, hashSync} from 'bcrypt';
-import { UserAlreadyExistWithEmail } from '../../usecases/utils/errors/userAlreadyExist.error';
+import { UserAlreadyExistWithEmail } from '../../commons/utils/exceptions/userAlreadyExist.error';
 
 const FATAL_ERROR = "Database Down";
 

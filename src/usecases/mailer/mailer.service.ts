@@ -2,9 +2,8 @@ import { Injectable } from "@nestjs/common";
 import { VerificationEmailDto } from "src/database/entities/verificationEmail/verification_email.dto";
 import { readHTMLFile } from "src/usecases/utils/mail/HTML_reader";
 import { MailerService } from '@nestjs-modules/mailer';
-import { FailSendingMail } from "src/usecases/utils/errors/FailSendingMail.error";
+import { FailSendingMail } from "src/commons/utils/exceptions/failSendingMail.error";
 import Handlebars from "handlebars";
-import { Url } from "../types/url.types";
 
 @Injectable()
 export class MailService {

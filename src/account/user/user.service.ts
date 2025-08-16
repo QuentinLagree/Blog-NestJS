@@ -3,7 +3,7 @@ import { Prisma, User } from "@prisma/client";
 import { UserDto, UserUpdateDto } from "../../database/entities/user/user.dto";
 import { PrismaService } from "../../database/prisma.service";
 import { hash, genSalt } from "bcryptjs";
-import { UserAlreadyExistWithEmail, UserAlreadyExistWithPseudo } from "../../usecases/utils/errors/userAlreadyExist.error";
+import { UserAlreadyExistWithEmail, UserAlreadyExistWithPseudo } from "../../commons/utils/exceptions/userAlreadyExist.error";
 import { PostsEntity } from "src/database/entities/posts/posts.entities";
 
 @Injectable()

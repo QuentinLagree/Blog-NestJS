@@ -2,9 +2,9 @@
 import { TestingModule, Test } from "@nestjs/testing";
 import { User } from "@prisma/client";
 import { UserLoginCredentials, UserDto } from "src/database/entities/user/user.dto";
-import { PasswordNotMatchException } from "src/usecases/utils/errors/PasswordNotMatchException.error";
-import { UserAlreadyActiveSession } from "src/usecases/utils/errors/UserAlreadyActiveSession.error";
-import { UserAlreadyExistWithEmail, UserAlreadyExistWithPseudo } from "src/usecases/utils/errors/userAlreadyExist.error";
+import { PasswordNotMatchException } from "src/commons/utils/exceptions/PasswordNotMatchException.error";
+import { UserAlreadyActiveSession } from "src/commons/utils/exceptions/UserAlreadyActiveSession.error";
+import { UserAlreadyExistWithEmail, UserAlreadyExistWithPseudo } from "src/commons/utils/exceptions/userAlreadyExist.error";
 import { createAuthServiceMock } from "../../usecases/mocks/services/auth/create.auth.service.mocks";
 import { createInvalidDto, createNewUserMock, createUserInvalidLoginDto, createUserLoginDto, createUserMock, createWrongUserLoginDto } from "../../usecases/mocks/create.user.mocks";
 import { createUserServiceMock } from "../../usecases/mocks/services/auth/create.user.service.mocks";

@@ -10,20 +10,20 @@ import { TokenService } from "src/usecases/token/token.service";
 import { createTokenServiceMock } from "../../usecases/mocks/services/auth/create_token.service.mocks";
 import { createVerificatioEmailParamSetTokenMock, createVerificationEmailMock, MockToken } from "../../usecases/mocks/create_verificationemail.mocks";
 import { TOKEN } from "src/usecases/types/token.types";
-import { TokenExpiredOrInvalidException } from "src/usecases/utils/errors/TokenIsExpired.error";
+import { TokenExpiredOrInvalidException } from "src/commons/utils/exceptions/TokenIsExpired.error";
 import * as emptyFieldsModule from "src/usecases/utils/checkIfFieldsEmpty.utils";
 import { createFieldsPasswordManagerDto, createUserMock, createWrongFieldsPasswordManagerDto } from "../../usecases/mocks/create.user.mocks";
 import { makeMessage, Message } from "src/usecases/utils/logger.utils";
-import { isFieldsInvalid } from "src/usecases/utils/errors/isFieldsInvalids.error";
+import { isFieldsInvalid } from "src/commons/utils/exceptions/isFieldsInvalids.error";
 import { ValidationError } from "class-validator";
 import * as userDtoModule from 'src/database/entities/user/user.dto';
 import { BadRequestException, HttpStatus, NotFoundException } from "@nestjs/common";
-import { PasswordNotMatchException } from "src/usecases/utils/errors/PasswordNotMatchException.error";
+import { PasswordNotMatchException } from "src/commons/utils/exceptions/PasswordNotMatchException.error";
 import { FastifyRequest } from "fastify";
 import { RESET_PASSWORD_ROUTE } from "src/constants/routes";
-import { FailSendingMail } from "src/usecases/utils/errors/FailSendingMail.error";
+import { FailSendingMail } from "src/commons/utils/exceptions/failSendingMail.error";
 import { expectHttpExceptionWithMessage } from "src/usecases/utils/HTTPExceptionErrorHandleTest.utils";
-import { PasswordNotSameException } from "src/usecases/utils/errors/PasswordNotSame.error";
+import { PasswordNotSameException } from "src/commons/utils/exceptions/PasswordNotSame.error";
 
 
 

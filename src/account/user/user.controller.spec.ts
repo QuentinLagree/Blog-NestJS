@@ -8,7 +8,7 @@ import { HttpException, HttpStatus, NotFoundException } from '@nestjs/common';
 import { createUserServiceMock } from '../../usecases/mocks/services/auth/create.user.service.mocks';
 import { User } from '@prisma/client';
 import { ValidationError } from 'class-validator';
-import { UserAlreadyExistWithEmail, UserAlreadyExistWithPseudo} from '../../usecases/utils/errors/userAlreadyExist.error';
+import { UserAlreadyExistWithEmail, UserAlreadyExistWithPseudo} from '../../commons/utils/exceptions/userAlreadyExist.error';
 import { ID } from 'src/usecases/types/id.types';
 import { expectHttpExceptionWithMessage } from 'src/usecases/utils/HTTPExceptionErrorHandleTest.utils';
 

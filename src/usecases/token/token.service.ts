@@ -4,7 +4,7 @@ import { randomBytes } from "node:crypto";
 import { VerificationEmailDto } from "src/database/entities/verificationEmail/verification_email.dto";
 import { PrismaService } from "src/database/prisma.service";
 import { TOKEN } from "src/usecases/types/token.types";
-import { TokenExpiredOrInvalidException } from "src/usecases/utils/errors/TokenIsExpired.error";
+import { TokenExpiredOrInvalidException } from "src/commons/utils/exceptions/TokenIsExpired.error";
 
 @Injectable()
 export class TokenService {

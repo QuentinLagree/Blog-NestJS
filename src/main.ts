@@ -4,8 +4,8 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import fastifySecureSession from '@fastify/secure-session';
 import fs from 'node:fs'
-import { PrismaService } from './database/prisma.service';
 import { ValidationPipe } from '@nestjs/common';
+import { PrismaService } from './config/database/prisma.service';
 
 
 async function bootstrap() {

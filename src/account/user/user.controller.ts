@@ -7,7 +7,7 @@ import { TransformDataMessageIntoObjectSerialization } from "../../usecases/inte
 import { ID } from "../../usecases/types/id.types";
 import { makeMessage, Message } from "../../usecases/utils/logger.utils";
 import { UserService } from "./user.service";
-import { UserAlreadyExistWithEmail  } from "../../usecases/utils/errors/userAlreadyExist.error";
+import { UserAlreadyExistWithEmail  } from "../../commons/utils/exceptions/userAlreadyExist.error";
 import { Role } from "src/usecases/roles/role.enum";
 import { Roles } from "src/usecases/roles/role.decorator";
 

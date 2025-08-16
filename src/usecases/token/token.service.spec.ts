@@ -7,7 +7,7 @@ import { VerificationTokens } from "@prisma/client";
 import { createOtherVerificationEmailMock, createVerificationEmailMock, MockToken } from "src/usecases/mocks/create_verificationemail.mocks";
 import { VerificationEmailDto } from "src/database/entities/verificationEmail/verification_email.dto";
 import { BadRequestException } from "@nestjs/common";
-import { TokenExpiredOrInvalidException } from "../utils/errors/TokenIsExpired.error";
+import { TokenExpiredOrInvalidException } from "../../commons/utils/exceptions/TokenIsExpired.error";
 
 
 const FATAL_ERROR = "database down"

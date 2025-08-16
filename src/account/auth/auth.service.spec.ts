@@ -4,13 +4,13 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { User } from '@prisma/client';
 import { UserLoginCredentials } from '../../database/entities/user/user.dto';
 import { PrismaService } from '../../database/prisma.service';
-import { PasswordNotMatchException } from '../../usecases/utils/errors/PasswordNotMatchException.error';
+import { PasswordNotMatchException } from '../../commons/utils/exceptions/PasswordNotMatchException.error';
 import { CreateMailerServiceMock, MailerServiceMockType } from '../../usecases/mocks/services/auth/create.mailer.service.mocks';
 import { CreatePrismaServiceMock, PrismaUserServiceMockType } from '../../usecases/mocks/services/database/create.prisma.service.mocks';
 import { createUserLoginDto, createUserMock, createWrongUserLoginDto } from '../../usecases/mocks/create.user.mocks';
 import { AuthService } from './auth.service';
 import { TOKEN } from "../../usecases/types/token.types";
-import { UserAlreadyActiveSession } from 'src/usecases/utils/errors/UserAlreadyActiveSession.error';
+import { UserAlreadyActiveSession } from 'src/commons/utils/exceptions/UserAlreadyActiveSession.error';
 
 const FATAL_ERROR = "Database Down";
 
