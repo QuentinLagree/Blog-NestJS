@@ -36,3 +36,5 @@ lerna-debug.log*
 
 secret-key
 .env
+
+/src/config/database/schema.prisma
