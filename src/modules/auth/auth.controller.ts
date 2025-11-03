@@ -33,6 +33,7 @@ import { dtoIsValid } from 'src/commons/helpers/dto/dto-validations.helper';
 import { AuthService } from './auth.service';
 import { UserLoginCredentials } from './dto/user-login-credentials.dto';
 import { Message } from 'src/commons/types/message/message';
+import { UserSession } from './dto/user-session.dto';
 
 @ApiTags('Authentification')
 @Controller('auth')
@@ -77,7 +78,7 @@ export class AuthController {
   async login(
     @Body() loginDto: UserLoginCredentials,
     @Session() session: secureSession.Session,
-  ): Promise<Message<User | ValidationError[] | null>> {
+  ): Promise<Message<UserSession | ValidationError[] | null>> {
     const errors: ValidationError[] = await dtoIsValid(
       loginDto,
       UserLoginCredentials,
@@ -108,7 +109,11 @@ export class AuthController {
       return makeMessage(
         `User Login Success (${user.id})`,
         'La connection est un succès.',
-        user,
+        {
+        id: logged_user.id,
+        email: logged_user.email,
+        role: logged_user.role,
+      },
       );
     } catch (error) {
       switch (true) {

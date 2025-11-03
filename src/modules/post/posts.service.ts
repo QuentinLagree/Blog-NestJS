@@ -48,8 +48,11 @@ export class PostsService {
         data: {
           title: createdData.title,
           content: createdData.content,
+          description: createdData.description,
           published: createdData.published,
-          authorId: author.id,
+          author: {
+            connect: { id: author.id }
+          }
         },
       });
     } catch (error) {

@@ -1,4 +1,4 @@
-import { PrismaClient } from 'prisma/prisma-client';
+import { PrismaClient } from '@prisma/client';
 
 import { genSaltSync, hashSync } from 'bcryptjs';
 
@@ -51,12 +51,14 @@ async function main() {
         authorId: quentin.id,
         title: 'Salut je suis un titre très sympathique',
         content: 'Salut je suis un contenue',
+        description: 'Ceci est une description du post'
       },
       {
         authorId: quentin.id,
         title:
           'Salut je suis un deuxième titre super sympa aussi voir meilleur !',
         content: 'Encore du contenue, toujours du contenue',
+        description: "Ceci est la description de la deuxième publication."
       },
     ],
   });

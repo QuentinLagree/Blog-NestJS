@@ -1,8 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Post, User } from '@prisma/client';
 import { Exclude } from 'class-transformer';
-import { IsDefined, isDefined, isNotEmpty } from 'class-validator';
-import { Role } from 'src/commons/roles/role.enum';
 
 export class UserEntity implements User {
   @ApiProperty()

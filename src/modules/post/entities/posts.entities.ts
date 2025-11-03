@@ -11,6 +11,8 @@ export class PostsEntity implements Post {
   @ApiProperty()
   content: string;
   @ApiProperty()
+  description: string;
+  @ApiProperty()
   published: boolean;
   @ApiProperty()
   created_at: Date;

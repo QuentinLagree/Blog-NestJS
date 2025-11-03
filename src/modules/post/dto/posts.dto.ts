@@ -13,6 +13,8 @@ export class Posts extends PartialType(PostsEntity) {
   @IsNotEmpty()
   content: string;
   @IsNotEmpty()
+  description: string;
+  @IsNotEmpty()
   published: boolean;
   @IsNotEmpty()
   created_at: Date;
