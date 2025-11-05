@@ -1,13 +1,16 @@
 import { PrismaClient } from '@prisma/client';
 
+import { PasswordService } from '../../../commons/services/password.service'
+
 import { genSaltSync, hashSync } from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
+const _password = new PasswordService()
+
+
 async function main() {
   const password = process.env['PASSWORD_SEED'] ?? 'Salut1234!';
-
-  const salt = genSaltSync(10);
 
   const quentin = await prisma.user.create({
     data: {
@@ -15,7 +18,7 @@ async function main() {
       prenom: 'Quentin',
       email: 'lagreequentindev21@gmail.com',
       pseudo: 'QuentinLa',
-      password: hashSync(password, salt),
+      password: await _password.hashPassword(password),
       role: 'admin',
       Account: {
         create: {
@@ -34,7 +37,7 @@ async function main() {
       prenom: 'Doe',
       email: 'johndoe@gmail.com',
       pseudo: 'JohnDoe',
-      password: hashSync('Salut1234!', salt),
+      password: await _password.hashPassword("Salut1234!"),
       role: 'user',
       Account: {
         create: {

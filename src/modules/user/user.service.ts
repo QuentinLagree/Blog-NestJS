@@ -1,18 +1,23 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma, User } from '@prisma/client';
 import { UserDto } from './dto/user.dto';
-import { hash, genSalt } from 'bcryptjs';
 import {
   UserAlreadyExistWithEmail,
   UserAlreadyExistWithPseudo,
 } from '../../commons/exceptions/userAlreadyExist.error';
-import { PostsEntity } from 'src/modules/post/entities/posts.entities';
 import { PrismaService } from 'src/commons/prisma/prisma.service';
 import { UserUpdateDto } from './dto/update-user.dto';
+import { PasswordService } from 'src/commons/services/password.service';
 
 @Injectable()
 export class UserService {
-  constructor(private readonly _prisma: PrismaService) {}
+  constructor(
+    private readonly _prisma: PrismaService,
+  private readonly _passwordManager: PasswordService) {
+    
+  }
+
+  
 
   async index(): Promise<User[]> {
     return await this._prisma.user.findMany();
@@ -49,7 +54,7 @@ export class UserService {
       // Si show() lève NotFoundException → on peut créer l’utilisateur
       if (error instanceof NotFoundException) {
         // Hash le mot de passe avant de l’enregistrer
-        let hashed_password = await this.hashPassword(data.password);
+        let hashed_password = await this._passwordManager.hashPassword(data.password);
         const newUser = await this._prisma.user.create({
           data: {
             ...userData,
@@ -106,10 +111,5 @@ export class UserService {
     } catch (error) {
       throw error;
     }
-  }
-
-  private async hashPassword(password: string): Promise<string> {
-    const salt = await genSalt(10);
-    return await hash(password, salt);
   }
 }

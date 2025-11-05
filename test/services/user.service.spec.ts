@@ -1,20 +1,14 @@
 import { TestingModule, Test } from '@nestjs/testing';
-import { PrismaService } from '../../config/database/prisma.service';
-import { UserService } from './user.service';
-import {
-  createInvalidDto,
-  createNewUserMock,
-  createUserMock,
-} from '../../usecases/mocks/create.user.mocks';
 import { NotFoundException, ValidationError } from '@nestjs/common';
-import { dtoIsValid, UserDto } from './dto/user.dto';
 import { User } from '@prisma/client';
-import {
-  CreatePrismaServiceMock,
-  PrismaUserServiceMockType,
-} from '../../usecases/mocks/services/database/create.prisma.service.mocks';
 import { compare, hashSync } from 'bcrypt';
-import { UserAlreadyExistWithEmail } from '../../commons/utils/exceptions/userAlreadyExist.error';
+import { CreatePrismaServiceMock, PrismaUserServiceMockType } from 'test/mocks/services/database/create.prisma.service.mocks';
+import { UserService } from 'src/modules/user/user.service';
+import { UserAlreadyExistWithEmail } from 'src/commons/exceptions/userAlreadyExist.error';
+import { dtoIsValid } from 'src/commons/helpers/dto/dto-validations.helper';
+import { PrismaService } from 'src/commons/prisma/prisma.service';
+import { UserDto } from 'src/modules/user/dto/user.dto';
+import { createUserMock, createNewUserMock, createInvalidDto } from 'test/mocks/create.user.mocks';
 
 const FATAL_ERROR = 'Database Down';
 
