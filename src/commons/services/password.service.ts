@@ -34,10 +34,6 @@ export class PasswordService {
     }
 
     async verifyPassword(storedHash: string, candidate: string): Promise<boolean> {
-        console.log(storedHash.length)
-        console.log(storedHash.split('$').length)
-        console.log(candidate+PEPPER)
-        
         try {
             return await argon2.verify(storedHash, candidate + PEPPER);
         } catch {
