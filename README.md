@@ -94,7 +94,7 @@
 ### **M6 – Sécurité et Authentification avancée**
 
 - [x] Bcrypt en place  
-- [ ] Migration vers **Argon2id**  
+- [x] Migration vers **Argon2id**  
 - [ ] Rehash automatique au login si ancien hash  
 - [ ] Rate-limit sur `/auth/login`  
 - [ ] Captcha ou double validation (si besoin)  
@@ -213,7 +213,7 @@
 
 ## 🧭 TL;DR (priorités immédiates)
 
-1. [ ] Passer **bcrypt → Argon2id**  
+1. [x] Passer **bcrypt → Argon2id**  
 2. [ ] Mettre en place **BullMQ + Nodemailer provider**  
 3. [ ] Intégrer **éditeur Markdown complet** (split-view + preview)  
 4. [ ] Ajouter **cache Redis** sur les routes publiques  
